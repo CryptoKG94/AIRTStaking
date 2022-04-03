@@ -1,7 +1,7 @@
 import BigNumber from "bignumber.js";
 
-export const setApprovalForAll = async (apeContract: any, stakingContract: any, account: any, approved: any) => {
-  return apeContract.methods
+export const setApprovalForAll = async (airtContract: any, stakingContract: any, account: any, approved: any) => {
+  return airtContract.methods
     .setApprovalForAll(
         stakingContract.options.address,
         approved
@@ -9,8 +9,8 @@ export const setApprovalForAll = async (apeContract: any, stakingContract: any, 
     .send({ from: account });
 };
 
-export const approve = async (apeContract: any, stakingContract: any, account: any, tokenId: any) => {
-  return apeContract.methods
+export const approve = async (airtContract: any, stakingContract: any, account: any, tokenId: any) => {
+  return airtContract.methods
     .approve(
         stakingContract.options.address,
         tokenId

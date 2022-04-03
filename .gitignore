@@ -1,2 +1,5 @@
 node_modules
 contract_proj/.env
+
+build
+data

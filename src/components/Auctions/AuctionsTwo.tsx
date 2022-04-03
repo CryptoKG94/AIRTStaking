@@ -4,7 +4,7 @@ import { useEthers } from '@usedapp/core'
 import { useWeb3 } from '../useWeb3'
 import { StakedInfo, UnStakedInfo } from '../types'
 import {
-  useApeContract,
+  useAirtContract,
   useStakingContract,
   useVariableContract,
 } from '../useContracts'
@@ -32,7 +32,7 @@ const AuctionsTwo = () => {
   const { account } = useEthers()
   const [requestedApproval, setRequestedApproval] = useState(false)
   const [isApproved, setIsApproved] = useState(false)
-  const apeContract = useApeContract()
+  const airtContract = useAirtContract()
   const stakingContract = useStakingContract()
   const variableContract = useVariableContract()
   const stakingAddress = getStakingAddress()
@@ -69,7 +69,7 @@ const AuctionsTwo = () => {
   }
 
   const fetchIsApprovedForAll = async () => {
-    const isApp = await apeContract.methods.isApprovedForAll(account, stakingAddress).call()
+    const isApp = await airtContract.methods.isApprovedForAll(account, stakingAddress).call()
     setIsApproved(isApp)
   }
 
@@ -77,13 +77,13 @@ const AuctionsTwo = () => {
     var result: UnStakedInfo = initUnStakedInfo
     result.tokenIds = []
     result.metadatas = []
-    const balance = await apeContract.methods.balanceOf(account).call()
+    const balance = await airtContract.methods.balanceOf(account).call()
     let a1 = 0
     for (a1 = 0; a1 < balance; a1++) {
-      const tokenId = await apeContract.methods
+      const tokenId = await airtContract.methods
         .tokenOfOwnerByIndex(account, a1)
         .call()
-      const metadata = await apeContract.methods.tokenURI(tokenId).call()
+      const metadata = await airtContract.methods.tokenURI(tokenId).call()
       const image = await getImageHash(metadata);
       result.tokenIds.push(tokenId)
       result.metadatas.push(image)
@@ -108,7 +108,7 @@ const AuctionsTwo = () => {
       const tokenInfo = await stakingContract.methods
         .userInfo(account, a)
         .call()
-      const metadata = await apeContract.methods.tokenURI(tokenInfo.tokenId).call()
+      const metadata = await airtContract.methods.tokenURI(tokenInfo.tokenId).call()
       const image = await getImageHash(metadata);
       result.tokenIds.push(tokenInfo.tokenId)
       result.metadatas.push(image)
@@ -183,7 +183,7 @@ const AuctionsTwo = () => {
     if (!isApproved) {
       try {
         setRequestedApproval(true)
-        await setApprovalForAll(apeContract, stakingContract, account, true)
+        await setApprovalForAll(airtContract, stakingContract, account, true)
         setIsApproved(true)
         setRequestedApproval(false)
       } catch {
@@ -403,7 +403,7 @@ const AuctionsTwo = () => {
         style={{ color: 'white', marginTop: 0 }}
       >
         <h5 className='em-wide' style={{ textAlign: 'center', width: '100%', fontFamily: 'Montserrat'}}  >
-            $VARIABLE EARNED<br/>
+            AirNFT TOKEN EARNED<br/>
             {reward.toString()}
         </h5>
       </div>

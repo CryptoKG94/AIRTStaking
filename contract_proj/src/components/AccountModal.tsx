@@ -148,7 +148,7 @@ export default function AccountModal({ isOpen, onClose }: Props) {
             fontWeight="medium"
             fontSize="md"
           >
-            Your transactions will appear here...
+            Your transactions willl appear here...
           </Text>
         </ModalFooter>
       </ModalContent>

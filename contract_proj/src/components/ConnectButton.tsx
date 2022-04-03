@@ -25,7 +25,7 @@ export default function ConnectButton({ handleOpenModal }: Props) {
     >
       <Box px="3">
         <Text color="black" fontSize="md">
-          {etherBalance && parseFloat(formatEther(etherBalance)).toFixed(3)} BNB
+          {etherBalance && parseFloat(formatEther(etherBalance)).toFixed(3)} ETH
         </Text>
       </Box>
       <Button
@@ -56,8 +56,8 @@ export default function ConnectButton({ handleOpenModal }: Props) {
   ) : (
     <Button
       onClick={handleConnectWallet}
-      // bg="blue.800"
-      color="black"
+      bg="white"
+      color="gray.800"
       fontSize="lg"
       fontWeight="medium"
       borderRadius="xl"

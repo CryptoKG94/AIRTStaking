@@ -14,8 +14,8 @@ const Header = () => {
             {/* Navbar */}
             <nav data-aos="zoom-out" data-aos-delay={800} className="">
             <div  style={{display:"flex", justifyContent:"center", alignItems:"center", flexWrap:"wrap"}}>
-                < a href='https://app.airnfts.com/creators/0x442B133945C0b23b2d092e771Af8784b7Eb2c75f' style={{height:"50px"}}>
-                    <img className="" style={{height:"100%"}} src="img/logo_white.png"  alt="sticky brand-logo" />
+                < a href='https://www.apeproject.io/' style={{height:"50px"}}>
+                    <img className="" style={{height:"100%"}} src="img/logo.png"  alt="sticky brand-logo" />
                 </a>
                 <span style={{flex:"1"}}></span>           
                 <span className="" style={{marginTop:20}}>
